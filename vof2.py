@@ -8,7 +8,6 @@ from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
 import os
 import numpy as np
 import yaml
-from tf2_ros import TransformBroadcaster
 import tf_transformations as tf
 
 class Vof2(Node):
@@ -19,7 +18,7 @@ class Vof2(Node):
         cwd = (cwd.split(os.sep)[:-1])
         cwd = (os.sep.join(cwd))
 
-        cwd = cwd + '/ros2_ws/src/vslam_optical_flow2/params/vslam_params.yaml'
+        cwd = cwd + '/vof2_without_cam_stream/params/vof2_params.yaml'
 
         with open(cwd, 'r') as file:
             self.params = yaml.safe_load(file)
@@ -149,7 +148,7 @@ class Vof2(Node):
 
                 self.quat = tf.quaternion_from_matrix(T_base_new)
 
-                broadcaster = TransformBroadcaster(self)
+                broadcaster = StaticTransformBroadcaster(self)
 
                 tf_msg = TransformStamped()
                 tf_msg.header.stamp = self.get_clock().now().to_msg()

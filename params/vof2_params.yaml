@@ -1,0 +1,8 @@
+initial_pose: [0.0, 0.0, 0.0] # [x, y, theta]
+transform_to_base: [[0.0, -0.01, 0.15], [0.0, 1.57, 0.0]] # ([x, y, z], [roll, pitch, yaw])
+#calibration_multiplier: 0.000096954 # pixel to meter transformation
+calibration_multiplier: 0.0002
+#image_topic: '/intel_realsense_r200_depth/image_raw'
+image_topic: '/camera1/image_raw'
+tf_frame_name: 'base_estimation'
+show_flows: True # Default is False
