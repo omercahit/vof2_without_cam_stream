@@ -167,8 +167,6 @@ class Vof2(Node):
                 self.prev_angle = self.angle
 
             self.prev_gray = gray
-
-            cv2.imshow('img', self.frame)
             
         else:
             self.get_logger().error('Camera frame could not be read.')
