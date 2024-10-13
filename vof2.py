@@ -77,7 +77,7 @@ class Vof2(Node):
     def timer_callback(self):
         ret, self.frame = self.cap.read()
         if ret:
-            #self.frame = self.frame[60:660, 340:940]
+            self.frame = self.frame[60:660, 340:940]
             
             ros_image = self.bridge.cv2_to_imgmsg(self.frame, encoding='bgr8')
             self.publisher_.publish(ros_image)
